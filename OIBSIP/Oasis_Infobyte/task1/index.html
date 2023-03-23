@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+</head>
+<body>
+ 
+  <div class="calculator">
+    <h1><i>CALCULATOR</i></h1>
+    <style>
+      h1{
+        color: white;
+      }
+    </style>
+    <input type="text" id="result" placeholder="0">
+    <div class="buttons">
+      <button class="operator" onclick="clearResult()">C</button>
+      <button class="operator" onclick="backspace()"><</button>
+      <button class="operator" onclick="addOperator('/')">/</button>
+      <button class="operator" onclick="addOperator('*')">x</button>
+      <button onclick="addNumber('7')">7</button>
+      <button onclick="addNumber('8')">8</button>
+      <button onclick="addNumber('9')">9</button>
+      <button class="operator" onclick="addOperator('-')">-</button>
+      <button onclick="addNumber('4')">4</button>
+      <button onclick="addNumber('5')">5</button>
+      <button onclick="addNumber('6')">6</button>
+      <button class="operator" onclick="addOperator('+')">+</button>
+      <button onclick="addNumber('1')">1</button>
+      <button onclick="addNumber('2')">2</button>
+      <button onclick="addNumber('3')">3</button>
+      <button class="equal" onclick="calculateResult()">=</button>
+      <button onclick="addNumber('0')">0</button>
+      <button onclick="addNumber('.')">.</button>
+    </div>
+  </div>
+  <style>
+
+
+		body {
+			background-image: url('th (1).jpg');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	
+    .calculator {
+      width: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #result {
+      width: 100%;
+      height: 60px;
+      font-size: 30px;
+      padding: 10px;
+      text-align: right;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    button {
+      width: calc(25% - 10px);
+      height: 60px;
+      font-size: 24px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f1f1f1;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .operator {
+      background-color: #fc8d00;
+      color: #fff;
+    }
+
+    .equal {
+      background-color: #28a745;
+      color: #fff;
+    }
+
+  </style>
+  <script>
+    let result = document.getElementById('result');
+
+    function addNumber(num) {
+      result.value += num;
+    }
+
+    function addOperator(operator) {
+      let lastChar = result.value.substr(result.value.length - 1);
+      if (lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/') {
+        result.value = result.value.substr(0, result.value.length - 1) + operator;
+      } else {
+result.value += operator;
+}
+}
+function clearResult() {
+  result.value = '';
+}
+
+function backspace() {
+  result.value = result.value.substr(0, result.value.length - 1);
+}
+
+function calculateResult() {
+  let expression = result.value;
+  let operands = expression.split(/[\+\-\*\/]/);
+  let operators = expression.replace(/[0-9]|\./g, '').split('');
+  let multiplyIndex = operators.indexOf('*');
+  let divideIndex = operators.indexOf('/');
+  while (multiplyIndex !== -1 || divideIndex !== -1) {
+    let index = multiplyIndex === -1 || (divideIndex !== -1 && divideIndex < multiplyIndex) ? divideIndex : multiplyIndex;
+    let operand1 = parseFloat(operands[index]);
+    let operand2 = parseFloat(operands[index + 1]);
+    let operator = operators[index];
+    let result;
+    if (operator === '*') {
+      result = operand1 * operand2;
+    } else if (operator === '/') {
+      result = operand1 / operand2;
+    }
+    operands.splice(index, 2, result);
+    operators.splice(index, 1);
+    multiplyIndex = operators.indexOf('*');
+    divideIndex = operators.indexOf('/');
+  }
+  let addIndex = operators.indexOf('+');
+  let subtractIndex = operators.indexOf('-');
+  while (addIndex !== -1 || subtractIndex !== -1) {
+    let index = addIndex === -1 || (subtractIndex !== -1 && subtractIndex < addIndex) ? subtractIndex : addIndex;
+    let operand1 = parseFloat(operands[index]);
+    let operand2 = parseFloat(operands[index + 1]);
+    let operator = operators[index];
+    let result;
+    if (operator === '+') {
+      result = operand1 + operand2;
+    } else if (operator === '-') {
+      result = operand1 - operand2;
+    }
+    operands.splice(index, 2, result);
+    operators.splice(index, 1);
+    addIndex = operators.indexOf('+');
+    subtractIndex = operators.indexOf('-');
+  }
+  result.value = operands[0];
+}
+</script>
+</body>
+</html>

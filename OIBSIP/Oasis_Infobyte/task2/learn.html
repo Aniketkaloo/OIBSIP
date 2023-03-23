@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><i>Tribute page</i></title>
+	<style>
+		
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
+
+		.header {
+			background-color: #333;
+			color: white;
+			padding: 20px;
+			text-align: center;
+			animation: fade-in 1s ease-in-out;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			animation: slide-up 1s ease-in-out;
+		}
+
+		h1 {
+			font-size: 36px;
+			margin-top: 0;
+		}
+
+		h2 {
+			font-size: 24px;
+			margin-top: 30px;
+			margin-bottom: 10px;
+		}
+
+		p {
+			font-size: 16px;
+			line-height: 1.5;
+			margin-top: 0;
+			margin-bottom: 20px;
+		}
+
+		.img-container {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 20px;
+			animation: fade-in 1s ease-in-out;
+		}
+
+		.img-container img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		/* Animation Keyframes */
+		@keyframes fade-in {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+
+		@keyframes slide-up {
+			from {
+				transform: translateY(50px);
+				opacity: 0;
+			}
+			to {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+
+/* The flip box container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-box {
+  background-color: transparent;
+  width: 500px;
+  height: 325px;
+  border: 1px solid #f1f1f1;
+  align:auto;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-box-front, .flip-box-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side */
+.flip-box-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-box-back {
+  background-color: rgb(143, 155, 148);
+  color: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+}
+
+
+
+
+	</style>
+</head>
+<body>
+	<header class="header" >
+		<h1><i> Tribute page on Albert Einstein</i></h1>
+	</header>
+	<div class="container">
+		<div class="img-container">
+		
+			<marquee><img src="th (3).jpg" alt="Albert Einstein">
+				<img src="th (1).jpg" alt="Albert Einstein">
+				<img src="th (2).jpg" alt="Albert Einstein">
+				<img src="th (3).jpg" alt="Albert Einstein">
+				<img src="th (4).jpg" alt="Albert Einstein">
+				<img src="th.jpg" alt="Albert Einstein">
+			
+			
+			</marquee>
+		
+		</div>
+		<h2><i>Biography</i></h2>
+		<p>
+			<i>Albert Einstein was a German-born theoretical physicist who developed the theory of relativity, one of the two pillars of modern physics (alongside quantum mechanics). He is best known to the general public for his mass-energy equivalence formula E = mc², which has been dubbed "the world's most famous equation". He received the Nobel Prize in Physics in 1921 "for his services to Theoretical Physics, and especially for his discovery of the law of the photoelectric effect".</i>
+		</p>
+		
+
+		<div class="flip-box">
+			<div class="flip-box-inner">
+			  <div class="flip-box-front">
+				
+			   <img src="https://tse2.mm.bing.net/th?id=OIP.GfVzb6eDw7JOyaRT4_TdgAHaEo&pid=Api&P=0" >
+			  </div>
+			  <div class="flip-box-back">
+				<h2><i>In one of Albert Einstein’s revolutionary scientific papers published in 1905, E=mc 2 was introduced; where E is energy, m is mass, and c is the speed of light in a vacuum. Since then, E=mc 2 has become one of the most famous equations in the world.</i></h2>
+	
+		</div>
+			</div>
+			  </div>
+	
+
+		<h2><i>Early Life</i></h2>
+		<p>
+			<i>Einstein was born in Ulm, in the Kingdom of Württemberg in the German Empire, on 14 March 1879 into a family of secular Ashkenazi Jews. His father, Hermann Einstein, was a salesman and engineer who, with his brother, founded Elektrotechnische Fabrik J. Einstein & Cie (a company that manufactured electrical equipment based on direct current).</i>
+		</p>
+		<p>
+			<i>Einstein attended a Catholic elementary school in Munich, where he excelled in his studies. At age 10, he began attending the Luitpold Gymnasium (now called the Albert Einstein Gymnasium), though he did not enjoy the school's style of rote learning. He left Germany for Italy at the age of 15 to finish secondary school, but he dropped out at the age of 16 and went to Switzerland, where he enrolled in a four-year mathematics and physics teaching diploma program at the Eidgenössische Polytechnische Schule in Zürich (later the ETH Zürich). </i>
+		</p>
+		<h2>Career</h2>
+		<p>
+			<i>After graduation, Einstein worked as a patent clerk in Bern, Switzerland, which gave him time to pursue his own scientific interests. In 1905, he published a series of groundbreaking papers, including one on the photoelectric effect, which helped establish the particle theory of light. He also published papers on Brownian motion and the special theory of relativity, which he developed to reconcile the laws of mechanics with the laws of electromagnetism.</i>
+		</p>
+		<p>
+			<i>In 1915, Einstein completed the general theory of relativity, which extends the special theory to cover accelerated frames of reference and gravity. This theory is the basis for modern cosmology and our understanding of the structure of the universe.</i>
+		</p>
+
+		
+
+
+			</div>
+
+
+
+	<footer>
+        @Copyright XYZ2023 - All right reserved
+	</footer>
+	<style>
+		footer{
+			background-color:#333;
+			height: 50px;
+		}
+	</style>
+	
+</body>
+</html>	
